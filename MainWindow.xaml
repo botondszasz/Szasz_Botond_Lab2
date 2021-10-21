@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Szász_Botond_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Loaded="frmMain_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
@@ -18,7 +18,7 @@
         <GroupBox x:Name="gbRaised" Header="Raised" FontWeight="Bold" Margin="0,84,461,217" Grid.Column="3">
             <Canvas Margin="0,0,-2,5">
                 <Label x:Name="lblGlazedRaised" Canvas.Left="6" Canvas.Top="18" Height="24" Width="48" Content="Glazed" FontWeight="Normal"/>
-                <TextBox x:Name="txtGlazedRaised" Text="0" TextWrapping="Wrap" Width="84" IsReadOnly="True" Canvas.Left="65" Canvas.Top="20" Height="20" FontWeight="Normal"/>
+                <TextBox x:Name="txtGlazedRaised" Text="0" TextWrapping="Wrap" Width="84" IsReadOnly="True" Canvas.Left="65" Canvas.Top="20" Height="22" FontWeight="Normal"/>
                 <Label x:Name="lblSugarRaised" Content="Sugar" Canvas.Left="6" Canvas.Top="65" FontWeight="Normal"/>
                 <TextBox x:Name="txtSugarRaised" Text="0" TextWrapping="Wrap" Width="84" IsReadOnly="True" Canvas.Left="65" Canvas.Top="67" Height="22" FontWeight="Normal"/>
                 <Label x:Name="lblLemonFilled" Content="Lemon" Height="32" Canvas.Left="243" Canvas.Top="-10" Width="51" FontWeight="Normal"/>
@@ -44,19 +44,19 @@
         <Button x:Name="btnAddToSale" Content="Add To Sale" Margin="470,284,60,128" Grid.Column="3"/>
         <Button x:Name="btnRemoveItem" Content="Remove Item" Margin="470,318,60,94" Grid.Column="3"/>
         <Button x:Name="btnCheckOut" Content="Check Out" FontWeight="Bold" Margin="470,370,60,42" Grid.Column="3"/>
-        <Menu Grid.ColumnSpan="4" Margin="0,0,0,407">
-            <MenuItem x:Name="muitmFile" Header="File">
-                <MenuItem x:Name="muitmExit" Header="Exit"/>
+        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="131" Margin="10,10,0,0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
-            <MenuItem x:Name="muitmDoughnuts" Header="Doughnuts">
-                <MenuItem x:Name="muitmMake" Header="Make">
-                    <MenuItem x:Name="muitmRaised" Header="Raised">
-                        <MenuItem x:Name="glazed" Header="Glazed"/>
-                        <MenuItem x:Name="sugar__" Header="Sugar"/>
+            <MenuItem Header="_Doughnuts">
+                <MenuItem Header="Make">
+                    <MenuItem Header="Raised">
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
-                    <MenuItem x:Name="muitmFilled" Header="Filled"/>
+                    <MenuItem Header="Filled"/>
                 </MenuItem>
-                <MenuItem x:Name="muitmStop" Header="Stop"/>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
 
